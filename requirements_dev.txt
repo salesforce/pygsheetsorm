@@ -1,0 +1,5 @@
+py
+pytest
+pytest-cov
+pytest-mock
+mock

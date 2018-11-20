@@ -1,0 +1,4 @@
+pygsheets
+oauth2client
+six
+retrying
