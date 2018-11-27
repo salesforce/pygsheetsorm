@@ -16,7 +16,7 @@ setup(name='pygsheetsorm',
             packages=['pygsheetsorm'],
             zip_safe=False,
             install_requires=[
-                'pygsheets',
+                'pygsheets==1.1.2',
                 'retrying',
             ],
       )
