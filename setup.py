@@ -18,5 +18,6 @@ setup(name='pygsheetsorm',
             install_requires=[
                 'pygsheets==1.1.2',
                 'retrying',
+                'oauth2client',
             ],
       )
