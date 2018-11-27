@@ -1,6 +1,7 @@
 
 
 # pygsheetsorm 
+[![Build Status](https://travis-ci.org/salesforce/pygsheetsorm.svg?branch=master)](https://travis-ci.org/salesforce/pygsheetsorm)
 
 Google Sheets Object Relational Mapper
 
