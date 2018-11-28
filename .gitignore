@@ -1,8 +1,12 @@
+# oauth creds
+client_secret.json
+
 # Vim swap files
 .*.swp
 
 # Unit test file
 TEST-unit.xml
+TEST-integration.xml
 
 # Byte-compiled / optimized / DLL files
 .pytest_cache/
