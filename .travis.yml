@@ -9,6 +9,7 @@ jobs:
   include:
     # TODO de-duplicate this
     - python: '2.7'
+      if: fork == false
       name: "Integration Tests 2.7"
       before_install:
         - openssl aes-256-cbc -K $encrypted_b62a2178dc70_key
@@ -17,6 +18,7 @@ jobs:
       install: pip install tox-travis
       script: tox -c ./tox-integration.ini
     - python: '3.6'
+      if: fork == false
       name: "Integration Tests 3.6"
       before_install:
         - openssl aes-256-cbc -K $encrypted_b62a2178dc70_key

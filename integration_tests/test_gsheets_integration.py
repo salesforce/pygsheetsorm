@@ -44,7 +44,7 @@ def jane(people):
     return people[1]
 
 
-def test_read_names(john, jane):
+def test_read_strings(john, jane):
     assert john.name == u"John"
     assert jane.name == u"Jane"
 
