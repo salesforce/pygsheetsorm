@@ -149,3 +149,13 @@ pip install git+ssh://git@github.com/salesforce/pygsheetsorm#egg=pygsheetsorm
 # Test it
 
 `tox`
+
+# Development
+
+Run unit tests: `tox`
+
+Code must be formatted with [black](https://github.com/ambv/black). You can reformat all code before submission with this tox command: `tox -e black-reformat`.
+
+## Integration Tests
+
+You must create a client_secrets.json in the root of the repo following [instructions](https://pygsheets.readthedocs.io/en/latest/authorization.html) from pygsheets.
