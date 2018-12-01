@@ -5,6 +5,7 @@
 
 import pytest
 import os
+from datetime import date
 import pygsheets
 from pygsheetsorm import Repository, Model
 
@@ -44,11 +45,27 @@ def jane(people):
     return people[1]
 
 
-def test_read_strings(john, jane):
-    assert john.name == u"John"
-    assert jane.name == u"Jane"
-
-
-def test_read_booleans(john, jane):
-    assert john.likes_cats is True
-    assert jane.likes_cats is False
+@pytest.mark.parametrize(
+    "attrib,john_val,jane_val",
+    [
+        # String
+        pytest.param("name", u"John", u"Jane"),
+        # Boolean
+        pytest.param("likes_cats", True, False),
+        # Percent
+        pytest.param("savings_rate", 0.05, 0.06),
+        # int
+        pytest.param("age", 20, 21),
+        # Dollars
+        pytest.param("balance", 1050.63, 2201.90),
+        # Date
+        pytest.param(
+            "account_opened",
+            date(year=2010, month=1, day=2),
+            date(year=2012, month=12, day=15),
+        ),
+    ],
+)
+def test_read(john, jane, attrib, john_val, jane_val):
+    assert getattr(john, attrib) == john_val
+    assert getattr(jane, attrib) == jane_val
