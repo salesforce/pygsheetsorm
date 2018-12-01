@@ -3,13 +3,9 @@ python:
   - '2.7'
   - '3.6'
 install: pip install tox-travis
+script: tox
 jobs:
   include:
-    - python: 2.7
-    - python: 3.6
-    - stage: "Tests"
-      name: "Unit Tests"
-      script: tox
     - stage: "Integration Tests"
       before_install:
         - openssl aes-256-cbc -K $encrypted_b62a2178dc70_key
