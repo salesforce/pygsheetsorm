@@ -5,10 +5,16 @@ python:
 jobs:
   include:
     - stage: "Tests"
+      python:
+        - '2.7'
+        - '3.6'
       install: pip install tox-travis
       name: "Unit Tests"
       script: tox
     - stage: "Integration Tests"
+      python:
+        - '2.7'
+        - '3.6'
       before_install:
         - openssl aes-256-cbc -K $encrypted_b62a2178dc70_key
           -iv $encrypted_b62a2178dc70_iv -in client_secret.json.enc
