@@ -16,5 +16,5 @@ setup(
     license="BSD 3-clause",
     packages=["pygsheetsorm"],
     zip_safe=False,
-    install_requires=["pygsheets==1.1.2", "retrying", "oauth2client"],
+    install_requires=["pygsheets==1.1.4", "retrying", "oauth2client"],
 )
