@@ -132,18 +132,8 @@ morty.Save()
 
 # Install
 
-## Add it to your requirements.txt
-
-```
--e git+ssh://git@github.com/salesforce/pygsheetsorm#egg=pygsheetsorm
-```
-
-## pip install it!
-
-Note: this should be done AFTER requests, certify, etc.
-
 ```shell
-pip install git+ssh://git@github.com/salesforce/pygsheetsorm#egg=pygsheetsorm
+pip install pygsheetsorm
 ```
 
 # Test it
