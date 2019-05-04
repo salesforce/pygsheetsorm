@@ -260,20 +260,20 @@ class Repository(object):
 
     def _set_header_mappings(self):
         """Populate a dict to map column numbers to python property names."""
-        header_row = self.worksheet.get_row(1, include_empty=False, returnas="cells")
+        header_row = self.worksheet.get_row(1, include_tailing_empty=False, returnas="cells")
         for cell in header_row:
             property_name = self._get_property_name_from_column_header(cell.value)
             self._col_to_property_name[cell.col] = property_name
 
     @classmethod
     def get_repository_with_creds(
-        cls, service_file, spreadsheet_id, sheet_name="Sheet1"
+        cls, service_account_file, spreadsheet_id, sheet_name="Sheet1"
     ):
         """Factory method to return a Repository given signed crednentials,
         spreadsheet id, and name of sheet.
 
         Args:
-          service_file (str): Service account key file (JSON) from google
+          service_account_file (str): Service account key file (JSON) from google
               https://pygsheets.readthedocs.io/en/stable/authorizing.html#signed-credentials
           spreadsheet_id (str): The ID of the google spreadsheet to retrieve data from.
           sheet_name (str): Name of sheet in spreadhseet to read/write to.
@@ -284,7 +284,7 @@ class Repository(object):
 
         """
         try:
-            client = pygsheets.authorize(service_file=service_file)
+            client = pygsheets.authorize(service_account_file=service_account_file)
             spreadsheet = client.open_by_key(spreadsheet_id)
             worksheet = spreadsheet.worksheet_by_title(sheet_name)
             return cls(pygsheets_worksheet=worksheet)

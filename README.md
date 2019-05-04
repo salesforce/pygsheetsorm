@@ -26,12 +26,12 @@ from pygsheetsorm import Repository, Model
 
 # Get a client using creds in json from google console
 # Docs on how to get creds here: https://pygsheets.readthedocs.io/en/stable/authorizing.html
-service_file = "./my-creds.json"
+service_account_file = "./my-creds.json"
 # spreadsheet_id can be grabbed from the sheet URL in your browser
 spreadsheet_id = "1T63f9cwytUEyvUoI1Ce0WpBYmVYYFtbaAbtoxUrhnE8"
 # The following is a helper method. You can also create a Repository
 # by instantiating it directly and passing it a pygsheets.Worksheet
-repo = Repository.get_repository_with_creds(service_file=service_file, 
+repo = Repository.get_repository_with_creds(service_account_file=service_account_file, 
                                             spreadsheet_id=spreadsheet_id,
                                             sheet_name="Sheet1")
 
@@ -64,7 +64,7 @@ Given a sheet with these contents:
 | Morty  | FALSE        |
 
 ```python
-repo = Repository.get_repository_with_creds(service_file=service_file, 
+repo = Repository.get_repository_with_creds(service_account_file=service_account_file, 
                                             spreadsheet_id=spreadsheet_id,
                                             sheet_name="Sheet1")
 
@@ -101,7 +101,7 @@ Given this sheet:
 | Morty | $19.80                  | 01/03/2025      |
 
 ```python
-repo = Repository.get_repository_with_creds(service_file=service_file, 
+repo = Repository.get_repository_with_creds(service_account_file=service_account_file, 
                                             spreadsheet_id=spreadsheet_id,
                                             sheet_name="Sheet1")
 

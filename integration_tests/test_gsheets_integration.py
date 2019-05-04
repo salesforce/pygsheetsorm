@@ -33,7 +33,7 @@ def client_secret_file():
 def people_worksheet(spreadsheet_id, client_secret_file):
     # Copy the People worksheet to one named with datetime
     # and use that for testing. Remove when done
-    client = pygsheets.authorize(service_file=client_secret_file)
+    client = pygsheets.authorize(service_account_file=client_secret_file)
     spreadsheet = client.open_by_key(spreadsheet_id)
     src_worksheet = spreadsheet.worksheet_by_title("People")
     write_worksheet_title = str(datetime.now())
@@ -48,7 +48,7 @@ def people_worksheet(spreadsheet_id, client_secret_file):
 def people(spreadsheet_id, client_secret_file, people_worksheet):
     # Lets test our helper function while we're here
     repo = Repository.get_repository_with_creds(
-        service_file=client_secret_file,
+        service_account_file=client_secret_file,
         spreadsheet_id=spreadsheet_id,
         sheet_name=people_worksheet.title,
     )
@@ -153,7 +153,7 @@ def new_people(client_secret_file, spreadsheet_id, people_worksheet):
        it loads correctly in a new Repository."""
     if not Cache.NEW_PEOPLE:
         new_repo = Repository.get_repository_with_creds(
-            service_file=client_secret_file,
+            service_account_file=client_secret_file,
             spreadsheet_id=spreadsheet_id,
             sheet_name=people_worksheet.title,
         )
