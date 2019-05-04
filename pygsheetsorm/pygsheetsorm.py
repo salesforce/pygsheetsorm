@@ -260,7 +260,9 @@ class Repository(object):
 
     def _set_header_mappings(self):
         """Populate a dict to map column numbers to python property names."""
-        header_row = self.worksheet.get_row(1, include_tailing_empty=False, returnas="cells")
+        header_row = self.worksheet.get_row(
+            1, include_tailing_empty=False, returnas="cells"
+        )
         for cell in header_row:
             property_name = self._get_property_name_from_column_header(cell.value)
             self._col_to_property_name[cell.col] = property_name
