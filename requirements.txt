@@ -1,4 +1,4 @@
-pygsheets==1.1.4
+pygsheets>=2
 oauth2client
 six
 retrying
