@@ -202,3 +202,33 @@ def test_repo_populates_boolean_in_model(full_repo):
     models = full_repo.get_all()
     assert models[2].header_row_1_column_1 == True
     assert models[2].header_row_1_column_2 == False
+
+
+@pytest.fixture
+def repo_header_only():
+    # Creates a repo with models based on the following data:
+    #
+    # | header row 1 column 1 | header row 1 column 2 |
+    # |-----------------------|-----------------------|
+    #
+    mock_worksheet = mock.create_autospec(pygsheets.Worksheet)
+    row = []
+    row_index = 0
+    for column_index in range(1, 3):
+        value = "row {} column {}".format(row_index, column_index)
+        if row_index == 1:
+            value = "header " + value
+        cell = get_mock_cell(
+            column_number=column_index, row_number=row_index, value=value
+        )
+        row.append(cell)
+    rows = [row]
+    mock_worksheet.get_all_values.return_value = rows
+    mock_worksheet.get_row.return_value = rows[0]
+    repo = Repository(pygsheets_worksheet=mock_worksheet)
+    return repo
+
+
+def test_header_only(repo_header_only):
+    models = repo_header_only.get_all()
+    assert len(models) == 0

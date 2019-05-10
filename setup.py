@@ -23,7 +23,7 @@ setup(
         "Programming Language :: Python :: 3.6",
     ],
     description="Easy to use library to map a Google Sheet Worksheet to a Python object.",
-    version="1.0.0",
+    version="1.0.1",
     url="https://github.com/salesforce/pygsheetsorm",
     license="BSD 3-clause",
     packages=["pygsheetsorm"],
