@@ -196,3 +196,7 @@ def test_read_new_data(new_people, attrib, rick_val, morty_val):
     new_morty = new_people[1]
     assert getattr(new_rick, attrib) == rick_val
     assert getattr(new_morty, attrib) == morty_val
+
+
+def test_count_people(people):
+    assert len(people) == 2

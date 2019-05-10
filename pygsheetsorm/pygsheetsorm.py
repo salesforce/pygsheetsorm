@@ -313,7 +313,11 @@ class Repository(object):
         """
         # Only get new models if none are cached
         if not self._models:
-            rows = self.worksheet.get_all_values(returnas="cells")
+            rows = self.worksheet.get_all_values(
+                include_tailing_empty=False,
+                include_tailing_empty_rows=False,
+                returnas="cells",
+            )
             # Skip header row and iterate over cells
             for row in rows[1:]:
                 model = self._get_model_from_row(row)
