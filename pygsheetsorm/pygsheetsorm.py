@@ -193,9 +193,9 @@ class Model(object):
 
     def Save(self):
         """Save model back to row in spreadsheet.
-           Only properties that have changed will be saved.
-           Uppercase method guarantees no collisions with customer
-           data.
+        Only properties that have changed will be saved.
+        Uppercase method guarantees no collisions with customer
+        data.
         """
         self.Metadata.save()
 

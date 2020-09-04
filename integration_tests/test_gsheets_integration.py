@@ -150,7 +150,7 @@ class Cache(object):
 @pytest.fixture
 def new_people(client_secret_file, spreadsheet_id, people_worksheet):
     """Fixture to call after we've written data and want to verify
-       it loads correctly in a new Repository."""
+    it loads correctly in a new Repository."""
     if not Cache.NEW_PEOPLE:
         new_repo = Repository.get_repository_with_creds(
             service_account_file=client_secret_file,
