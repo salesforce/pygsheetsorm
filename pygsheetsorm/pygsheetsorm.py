@@ -338,6 +338,7 @@ class Repository(object):
 
         # Empty cells don't get returned so we create empties to work with
         columns_to_add = set(list(self._col_to_property_name.keys()))
+        row_number = 0
         for cell in row:
             row_number = cell.row  # When we fill in emptyies, we need this
             try:
